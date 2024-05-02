@@ -1,12 +1,14 @@
 package com.example.exception.exception;
 
+import com.example.exception.controller.RestApiBController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
-@RestControllerAdvice   // REST API가 사용하는 곳에 예외 발생을 감지함.
+@RestControllerAdvice(basePackages = "com.example.exception.controller")
+// @RestControllerAdvice(basePackageClasses = { RestApiController.class, RestApiBController.class }
 public class ReatApiExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
