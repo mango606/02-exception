@@ -16,7 +16,7 @@ public class RestApiBController {
 
     // localhost:8080/api/b
     @GetMapping(path = "/hello")
-    public void hello(){
+    public void hello() {
         throw new NumberFormatException("number format exception");
         // RestApiExceptionHandler가 나오는 이유: number format exception이 따로 지정되어 있지 않음.
     }

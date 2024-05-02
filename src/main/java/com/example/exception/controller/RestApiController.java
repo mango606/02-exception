@@ -13,7 +13,7 @@ import java.util.List;
 public class RestApiController {
 
     @GetMapping(path = "")
-    public void hello(){
+    public void hello() {
 //        throw new RuntimeException("runtime exception");    // 500 에러
         var list = List.of("hello");
         var element = list.get(1);  // OutOfIndex 에러
