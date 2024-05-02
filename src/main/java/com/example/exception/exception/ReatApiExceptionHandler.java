@@ -3,6 +3,7 @@ package com.example.exception.exception;
 import com.example.exception.controller.RestApiBController;
 import com.example.exception.model.Api;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,17 +13,18 @@ import java.util.NoSuchElementException;
 
 @Slf4j
 @RestControllerAdvice(basePackages = "com.example.exception.controller")
+@Order(1)   // GlobalExceptionHandler 보다 먼저 실행되야 함.
 // @RestControllerAdvice(basePackageClasses = { RestApiController.class, RestApiBController.class }
 public class ReatApiExceptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
+/*    @ExceptionHandler(value = Exception.class)
     public ResponseEntity exception(
             Exception e
     ) {
         log.error("RestApiExceptionHandler ", e);
 
         return ResponseEntity.status(200).build();
-    }
+    }*/
 
     @ExceptionHandler(value = {IndexOutOfBoundsException.class})
     public ResponseEntity outOfBoundsException(

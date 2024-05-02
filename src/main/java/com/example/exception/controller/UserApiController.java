@@ -43,7 +43,7 @@ public class UserApiController {
             @PathVariable String userId
     ) {
         if (true) {
-            throw new RuntimeException("message");
+            throw new RuntimeException("message");  // 임의로 알 수 없는 에러 터뜨림.(GlobalExceptionHandler 동작 확인)
         }
 
         var user = userList.stream()
